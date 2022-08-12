@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     MediaPlayer mp_main;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_shop;
     ImageView sound_image;
     AudioManager amanager;
+    long backPressedTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(true){
-
+        if(System.currentTimeMillis() - backPressedTime > 2000){
+            Toast.makeText(this, "Click again to exit", Toast.LENGTH_SHORT).show();
         }else {
             mp_main.stop();
             super.onBackPressed();
