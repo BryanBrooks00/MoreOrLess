@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">More or Less</string>
+    <string name="score">Score:</string>
+    <string name="more">More</string>
+    <string name="less">Less</string>
+    <string name="play">Play</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="shop">Shop</string>
+    <string name="replay">Replay</string>
+    <string name="menu">Menu</string>
+    <string name="ad">Ad</string>
+    <string name="back">Back</string>
+    <string name="new_record">New record!</string>
+    <string name="title">What number gonna be next…</string>
+    <string name="a">Not bad</string>
+    <string name="b">Good result!</string>
+    <string name="c">Perfect!</string>
+    <string name="d">You can do better</string>
+    <string name="e">Amazing!</string>
+    <string name="f">Try again</string>
+    <string name="one_product">250 coins bonus</string>
+    <string name="two_product">x2 coins</string>
+    <string name="three_product">Five lives</string>
+    <string name="warning">Not enough money…</string>
+    <string name="tryLater">Try later…</string>
+    <string name="youEarned">You earned </string>
+</resources>

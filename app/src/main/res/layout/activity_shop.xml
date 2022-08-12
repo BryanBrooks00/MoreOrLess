@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".ShopActivity">
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="169dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="79dp"
+        android:fontFamily="@font/itckrist"
+        android:text="@string/shop"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/balance_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/balance_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintBottom_toBottomOf="@+id/balance_tv"
+        app:layout_constraintEnd_toStartOf="@+id/balance_tv"
+        app:layout_constraintStart_toEndOf="@+id/title_tv"
+        app:layout_constraintTop_toTopOf="@+id/balance_tv"
+        app:srcCompat="@drawable/coin" />
+
+    <TextView
+        android:id="@+id/balance_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="17dp"
+        android:fontFamily="@font/itckrist"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/balance_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_ad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_press_logic"
+        android:fontFamily="@font/itckrist"
+        android:text="@string/ad"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_tv" />
+
+    <TextView
+        android:id="@+id/ad_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="3dp"
+        android:fontFamily="@font/itckrist"
+        android:text="+100"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/coin_image"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ad" />
+
+    <ImageView
+        android:id="@+id/coin_image"
+        android:layout_width="22dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ad_tv"
+        app:layout_constraintEnd_toEndOf="@+id/btn_ad"
+        app:layout_constraintStart_toEndOf="@+id/one_tv"
+        app:layout_constraintTop_toTopOf="@+id/ad_tv"
+        app:srcCompat="@drawable/coin" />
+
+    <TextView
+        android:id="@+id/one_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/itckrist"
+        android:text="@string/one_product"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn1_buy"
+        app:layout_constraintEnd_toEndOf="@+id/two_tv"
+        app:layout_constraintStart_toEndOf="@+id/two_tv" />
+
+    <Button
+        android:id="@+id/btn1_buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="53dp"
+        android:background="@drawable/btn_press_logic"
+        android:fontFamily="@font/itckrist"
+        android:paddingEnd="15dp"
+        android:text="100"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/one_tv"
+        app:layout_constraintTop_toBottomOf="@+id/coin_image" />
+
+    <ImageView
+        android:id="@+id/coin_image1"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn2_buy"
+        app:layout_constraintEnd_toEndOf="@+id/coin_image3"
+        app:layout_constraintStart_toStartOf="@+id/coin_image3"
+        app:layout_constraintTop_toBottomOf="@+id/coin_image"
+        app:srcCompat="@drawable/coin" />
+
+    <TextView
+        android:id="@+id/two_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="162dp"
+        android:fontFamily="@font/itckrist"
+        android:text="@string/two_product"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/coin_image2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/one_tv" />
+
+    <Button
+        android:id="@+id/btn2_buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_press_logic"
+        android:fontFamily="@font/itckrist"
+        android:paddingEnd="15dp"
+        android:text="500"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/btn1_buy"
+        app:layout_constraintTop_toBottomOf="@+id/btn1_buy" />
+
+    <ImageView
+        android:id="@+id/coin_image2"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="101dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn2_buy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/two_tv"
+        app:layout_constraintTop_toTopOf="@+id/btn2_buy"
+        app:srcCompat="@drawable/coin" />
+
+    <TextView
+        android:id="@+id/three_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="154dp"
+        android:fontFamily="@font/itckrist"
+        android:text="@string/three_product"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/coin_image3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/two_tv" />
+
+    <Button
+        android:id="@+id/btn3_buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/btn_press_logic"
+        android:fontFamily="@font/itckrist"
+        android:paddingEnd="15dp"
+        android:text="1000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/btn2_buy"
+        app:layout_constraintTop_toBottomOf="@+id/btn2_buy" />
+
+    <ImageView
+        android:id="@+id/coin_image3"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="102dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn3_buy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/three_tv"
+        app:layout_constraintTop_toTopOf="@+id/btn3_buy"
+        app:srcCompat="@drawable/coin" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="220dp"
+        android:background="@drawable/btn_press_logic"
+        android:fontFamily="@font/itckrist"
+        android:text="@string/back"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
