@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="35dp"
         android:fontFamily="@font/itckrist"
         android:text="@string/app_name"
         android:textColor="@color/white"
@@ -25,25 +25,25 @@
         android:id="@+id/app_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="622dp"
+        android:layout_marginTop="77dp"
         android:fontFamily="@font/itckrist"
         android:gravity="center"
         android:text="@string/title"
         android:textColor="@color/white"
         android:textSize="23sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sound_image" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_play"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/btn_press_logic"
         android:fontFamily="@font/itckrist"
+        android:padding="15sp"
         android:text="@string/play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,27 +51,15 @@
 
     <Button
         android:id="@+id/btn_shop"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/btn_press_logic"
         android:fontFamily="@font/itckrist"
+        android:padding="15sp"
         android:text="@string/shop"
-        app:layout_constraintStart_toStartOf="@+id/btn_play"
-        app:layout_constraintTop_toBottomOf="@+id/btn_play" />
-
-    <ImageView
-        android:id="@+id/sound_image"
-        android:layout_width="25dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="37dp"
-        app:layout_constraintBottom_toTopOf="@+id/app_name_tv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sound" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_play" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

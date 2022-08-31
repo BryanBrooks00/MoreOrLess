@@ -1,13 +1,9 @@
 package com.darwin.moreorless;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,22 +11,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.OnUserEarnedRewardListener;
-import com.google.android.gms.ads.admanager.AdManagerAdRequest;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
 public class ShopActivity extends AppCompatActivity {
     private RewardedAd mRewardedAd;
-    private long backPressedTime;
     TextView balance_tv;
     Button btn_ad;
     Button btn1_buy;
@@ -45,7 +39,6 @@ public class ShopActivity extends AppCompatActivity {
     String warning;
     String tryLater;
     String youEarned;
-    MediaPlayer mp_main;
     String adId = "ca-app-pub-2382402581294867/1488617897";
     String testAdId = "ca-app-pub-3940256099942544/5224354917";
 
@@ -65,21 +58,9 @@ public class ShopActivity extends AppCompatActivity {
         btn3_buy = findViewById(R.id.btn3_buy);
         btn_back = findViewById(R.id.btn_back);
 
+        loadAd();
         checkBalance();
         checkState();
-
-        mp_main = MediaPlayer.create(this, R.raw.background_music);
-        mp_main.start();
-
-        loadAd();
-       /* MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                loadAd();
-            }
-        });
-
-        */
 
         btn_ad.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +114,6 @@ public class ShopActivity extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mp_main.stop();
                 startActivity(new Intent(ShopActivity.this, MainActivity.class));
                 finish();
             }
@@ -186,7 +166,7 @@ public class ShopActivity extends AppCompatActivity {
     public void loadAd(){
         Log.i(TAG, "Ad is loading...");
         AdRequest adRequest = new AdRequest.Builder().build();
-        RewardedAd.load(context,testAdId,
+        RewardedAd.load(context,adId,
                 adRequest,new RewardedAdLoadCallback() {
                     @Override
                     public void onAdFailedToLoad (@NonNull LoadAdError loadAdError){
@@ -261,7 +241,7 @@ public class ShopActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        mp_main.stop();
         startActivity(new Intent(ShopActivity.this, MainActivity.class));
+        finish();
     }
 }

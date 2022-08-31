@@ -35,7 +35,6 @@ public class GameActivity extends AppCompatActivity {
     int prevNum;
     final static String TAG = "LOG";
     MediaPlayer mp;
-    MediaPlayer mp_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +52,6 @@ public class GameActivity extends AppCompatActivity {
         btn_back = findViewById(R.id.btn_back);
         num_tv = findViewById(R.id.num_tv);
         score = Integer.parseInt(score_tv.getText().toString());
-
-        mp_main = MediaPlayer.create(this, R.raw.background_music);
-        mp_main.start();
 
         setFirstNumber();
         //number = randomNumber();
@@ -211,7 +207,6 @@ public class GameActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                mp_main.stop();
                 startActivity(new Intent(GameActivity.this, FinalActivity.class));
                 finish();
             }
@@ -232,5 +227,6 @@ public class GameActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         startActivity(new Intent(GameActivity.this, MainActivity.class));
+        finish();
     }
 }

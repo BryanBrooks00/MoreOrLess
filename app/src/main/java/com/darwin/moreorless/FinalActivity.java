@@ -19,17 +19,12 @@ public class FinalActivity extends AppCompatActivity {
     TextView money_tv;
     TextView comment_tv;
     MediaPlayer mp;
-    MediaPlayer mp_main;
     String [] final_comments = {};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
-
-
-        mp_main = MediaPlayer.create(this, R.raw.background_music);
-        mp_main.start();
 
         final_comments = new String[]{getString(R.string.a), getString(R.string.b),
                 getString(R.string.c), getString(R.string.d),
@@ -46,7 +41,6 @@ public class FinalActivity extends AppCompatActivity {
         btn_replay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mp_main.stop();
                 startActivity(new Intent(FinalActivity.this, GameActivity.class));
                 finish();
             }
@@ -55,7 +49,6 @@ public class FinalActivity extends AppCompatActivity {
         btn_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mp_main.stop();
                 startActivity(new Intent(FinalActivity.this, MainActivity.class));
                 finish();
             }
@@ -88,8 +81,8 @@ public class FinalActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        mp_main.stop();
         startActivity(new Intent(FinalActivity.this, MainActivity.class));
+        finish();
     }
 }
 

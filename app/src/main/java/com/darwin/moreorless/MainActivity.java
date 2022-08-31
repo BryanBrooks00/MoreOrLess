@@ -1,19 +1,16 @@
 package com.darwin.moreorless;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
-    MediaPlayer mp_main;
     Button btn_play;
     Button btn_shop;
     ImageView sound_image;
@@ -26,40 +23,59 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         amanager = (AudioManager) getSystemService(AUDIO_SERVICE);
-        mp_main = MediaPlayer.create(this, R.raw.background_music);
-        mp_main.start();
+        startService(new Intent(this, Sound.class).setAction("play"));
+
         btn_play = findViewById(R.id.btn_play);
         btn_shop = findViewById(R.id.btn_shop);
-        sound_image = findViewById(R.id.sound_image);
 
         btn_play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mp_main.stop();
                 startActivity(new Intent(MainActivity.this, GameActivity.class));
+                finish();
             }
         });
 
         btn_shop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mp_main.stop();
                 startActivity(new Intent(MainActivity.this, ShopActivity.class));
-            }
-        });
-
-        sound_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (isMute()){
-                    unmute();
-                }else{
-                    mute();
-                }
+                finish();
             }
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis() - backPressedTime > 2000) {
+            backPressedTime = System.currentTimeMillis();
+            Toast.makeText(this, "Click again to exit", Toast.LENGTH_SHORT).show();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    /*
     public void mute() {
         //mute audio
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -82,14 +98,6 @@ public class MainActivity extends AppCompatActivity {
         amanager = (AudioManager) getSystemService(AUDIO_SERVICE);
         return amanager.isStreamMute(AudioManager.STREAM_MUSIC);
     }
+  */
 
-    @Override
-    public void onBackPressed() {
-        if(System.currentTimeMillis() - backPressedTime > 2000){
-            Toast.makeText(this, "Click again to exit", Toast.LENGTH_SHORT).show();
-        }else {
-            mp_main.stop();
-            super.onBackPressed();
-        }
-    }
 }

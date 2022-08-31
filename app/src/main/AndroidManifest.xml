@@ -14,13 +14,16 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-2382402581294867~9777337303"/>
 
+    <service android:name=".Sound"/>
 
         <activity
             android:name=".ShopActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".FinalActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".GameActivity"
             android:exported="false"
