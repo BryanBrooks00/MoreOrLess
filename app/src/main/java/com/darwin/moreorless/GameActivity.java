@@ -1,5 +1,6 @@
 package com.darwin.moreorless;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +13,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 import java.util.Random;
 
@@ -200,7 +211,7 @@ public class GameActivity extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.game_over);
         mp.start();
         savePrefs();
-        CountDownTimer timer = new CountDownTimer(3000, 1000) {
+        CountDownTimer timer = new CountDownTimer(2000, 1000) {
             @Override
             public void onTick(long l) {
             }
@@ -214,10 +225,10 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void savePrefs(){
-        int coeffecient = Integer.parseInt(Preferences.getCoefficient(this));
+        int coefficient = Integer.parseInt(Preferences.getCoefficient(this));
         Preferences.setOldMoney(this, Preferences.getMoney(this));
         Preferences.setOldRecord(this, Preferences.getRecord(this));
-        Preferences.setMoney(this, String.valueOf((score*coeffecient)
+        Preferences.setMoney(this, String.valueOf((score*coefficient)
                 + Integer.parseInt(Preferences.getOldMoney(this))));
         if (score > Integer.parseInt(Preferences.getOldRecord(this))) {
             Preferences.setRecord(this, String.valueOf(score));
@@ -229,4 +240,5 @@ public class GameActivity extends AppCompatActivity {
         startActivity(new Intent(GameActivity.this, MainActivity.class));
         finish();
     }
+
 }

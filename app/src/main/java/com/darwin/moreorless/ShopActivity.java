@@ -39,8 +39,8 @@ public class ShopActivity extends AppCompatActivity {
     String warning;
     String tryLater;
     String youEarned;
-    String adId = "ca-app-pub-2382402581294867/1488617897";
-    String testAdId = "ca-app-pub-3940256099942544/5224354917";
+    final static String AD_ID = "ca-app-pub-2382402581294867/1488617897";
+    final static String TEST_AD_ID = "ca-app-pub-3940256099942544/5224354917";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,7 +166,7 @@ public class ShopActivity extends AppCompatActivity {
     public void loadAd(){
         Log.i(TAG, "Ad is loading...");
         AdRequest adRequest = new AdRequest.Builder().build();
-        RewardedAd.load(context,adId,
+        RewardedAd.load(context,AD_ID,
                 adRequest,new RewardedAdLoadCallback() {
                     @Override
                     public void onAdFailedToLoad (@NonNull LoadAdError loadAdError){
